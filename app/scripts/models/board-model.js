@@ -6,8 +6,8 @@ var BoardModel = Backbone.Model.extend({
       image: "",
       description: "",
       price: "",
-    }
+    };
   }
-})
+});
 
 module.exports = BoardModel;

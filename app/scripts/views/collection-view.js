@@ -11,8 +11,17 @@ var CollectionView = Backbone.View.extend({
     var index = collection.indexOf(model);
     var ItemViewConstructor = this.ItemViewConstructor || Backbone.View;
     var view = new ItemViewConstructor({model: model});
+    view.render();
     this.children.splice(index, 0, view);
-    this.$el.append(view.render().el);
+    if(index < this.children.length - 1) {
+      var nextModel = collection.at(index + 1);
+      var nextView = _.findWhere(this.children, {model: nextModel});
+      if(nextView) {
+        nextView.$el.before(view.el);
+      } else {
+        this.$el.append(view.el);
+      }
+    }
   },
 
   removeChild: function(model, collection) {

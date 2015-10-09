@@ -1,6 +1,6 @@
-var BoardModel = require('models/board-model')
+var BoardModel = require('models/board-model');
 
-var Collection = Backbone.Model.extend({
+var Collection = Backbone.Collection.extend({
   model: BoardModel,
   url: "http://tiny-lasagna-server.herokuapp.com/collections/snowboard"
 });
