@@ -14,4 +14,4 @@ removeItem: function(product){
 }
 });
 
-module.exports = new CheckOut();
+module.exports = new CheckOut;

@@ -12,10 +12,15 @@ var CheckoutView = Backbone.View.extend({
     return this;
   },
   present: function(){
-    return checkoutModel.get('items').map((p) =>{
+    return {
+      items: checkoutModel.get('items').map((p) =>{
       return p.toJSON();
-    });
-  }
+    }),
+      subtotal: checkoutModel.get('items').reduce(function(total, current){
+          return total + Number(current.get('price'));
+  },0) + ""
+};
+}
 });
 
 module.exports = CheckoutView;

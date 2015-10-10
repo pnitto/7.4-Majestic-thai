@@ -19,7 +19,6 @@ var AppRouter = Backbone.Router.extend({
     var orderview = new OrderView({
       model: checkoutModel
     })
-
     this.collections.fetch();
 
     $('#container').append(view.render().el)

@@ -1,8 +1,8 @@
-
 <div class="checkout-div">
-{{#each this}}
-  {{name}}
-  {{price}}
-{{/each}}
+  <h1 class="order-header">Your Order</h1>
+  <h3 class="subtotal">Subtotal</h3><h4 class="subtotal-number">${{subtotal}}</h4>
+    {{#each items}}
+        <li class="checkout-item">{{name}}</li>
+    {{/each}}
 
 </div>

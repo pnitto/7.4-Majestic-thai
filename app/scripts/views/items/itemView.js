@@ -21,7 +21,9 @@ var ItemView = Backbone.View.extend({
   addProduct: function(){
     checkOut.addItem(this.model)
     console.log(checkOut)
-  }
+  },
+
+
 });
 
 module.exports = ItemView;
