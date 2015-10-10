@@ -20,11 +20,32 @@ body {
   font-family: $base-font-family;
 }
 .board-image{
-  width: 300px;
-  height: 300px;
+  height: 210px;
 }
-.div {
-  height: 40px;
+.top-nav {
+  height: 60px;
   width: 100%;
   background-color: blue;
+}
+.item-list {
+  @include span-columns(9);
+  list-style-type: none;
+}
+.item-li {
+  @include span-columns(3 of 9);
+  @include omega();
+}
+.checkout-div {
+  @include span-columns(3);
+  border: 2px solid black;
+  height: 300px;
+  margin-left: 70%;
+  margin-top: -46%;
+}
+.header {
+  background: url("https://images.unsplash.com/photo-1422217604777-710d38a8d846?q=80&fm=jpg&s=28271d77658911683df31bfcbfafe02c");
+  background-position:center;
+  background-size: cover;
+  height: 400px;
+  width: 100%;
 }

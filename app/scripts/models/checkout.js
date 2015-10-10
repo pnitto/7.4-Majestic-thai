@@ -6,7 +6,7 @@ defaults: function(){
   };
 },
 addItem: function(product){
-  var cart = this.set('items',this.get('items').concat([product]));
+  this.set('items',this.get('items').concat([product]));
 },
 removeItem: function(product){
   this.set('items',_.without(this.get('items'), product));
@@ -14,4 +14,4 @@ removeItem: function(product){
 }
 });
 
-module.exports = CheckOut;
+module.exports = new CheckOut();

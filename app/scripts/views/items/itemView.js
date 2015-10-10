@@ -1,6 +1,7 @@
-var CheckOut = require('models/checkout');
+var checkOut = require('models/checkout');
 
 var ItemView = Backbone.View.extend({
+  className: 'item-li',
   tagName: 'li',
   template: JST['items/item'],
   events: {
@@ -9,19 +10,17 @@ var ItemView = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.collection, 'add', this.render);
-    this.listenTo(appRouter.CheckOut,'change:items', this.renderCart);
+    this.listenTo(checkOut,'change:items', this.render);
+
   },
   render: function(){
     this.$el.prepend(this.template(this.model.toJSON()));
-    //this.renderCart();
     return this;
+
   },
   addProduct: function(){
-    //var cart = appRouter.checkOut.addItem()
-    //dconsole.log(this.model)
-    console.log(appRouter.CheckOut);
-
-
+    checkOut.addItem(this.model)
+    console.log(checkOut)
   }
 });
 

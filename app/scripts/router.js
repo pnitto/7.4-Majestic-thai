@@ -1,35 +1,32 @@
 var Collection = require('models/collection');
 var BoardIndexView = require('views/items/ListView');
-var CheckoutModel = require('models/checkout');
+var OrderView = require('views/items/checkoutView');
+var checkoutModel = require('models/checkout')
 
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
   },
-  events: {
-    'index': 'fetch'
-  },
   initialize: function(){
-    $('#container').html(JST['application']());
     this.collections = new Collection();
     //console.log(this.collections)
-    this.checkOut = new CheckoutModel();
     return this;
   },
   index: function(){
     var view = new BoardIndexView({
       collection: this.collections
     });
+    var orderview = new OrderView({
+      model: checkoutModel
+    })
 
     this.collections.fetch();
-    this.showView(view);
+
+    $('#container').append(view.render().el)
+    $('#container').append(orderview.render().el);
+
   },
-  showView: function(view) {
-    if(this.currentView) this.currentView.remove();
-    this.currentView = view;
-    $('#container').html(view.render().el);
-    return view;
-  },
+
 });
 
 
