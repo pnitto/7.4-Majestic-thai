@@ -17,8 +17,8 @@ var BoardIndexView = Backbone.View.extend({
   },
   render: function(){
     //render the template
-    this.$el.html(this.template())
-    this.$el.html(this.collectView.render().el);
+    this.$el.append(this.template())
+    this.$el.append(this.collectView.render().el);
     return this;
   },
   remove: function(){
