@@ -42,6 +42,7 @@ body {
   @include span-columns(3 of 9);
   @include omega(3n);
   border: 2px solid #EEEEEE;
+  height: 360px;
 
 
 }
@@ -72,4 +73,22 @@ body {
 }
 .checkout-item-ul {
   margin-top: -20%;
+  list-style-type: none;
+
+}
+.item-header {
+  position: absolute;
+  left: 16%;
+}
+.price-btn {
+  border: none;
+}
+.price-btn:hover{
+  background-color:#1976D9;
+  color: white;
+}
+.submit-order-btn {
+  position: absolute;
+  right: 7%;
+  top: 57%;
 }

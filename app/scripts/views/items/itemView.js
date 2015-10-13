@@ -5,7 +5,7 @@ var ItemView = Backbone.View.extend({
   tagName: 'li',
   template: JST['items/item'],
   events: {
-    'click .price-btn': 'addProduct'
+    'click .price-btn': 'addProduct',
   },
 
   initialize: function(){
@@ -22,7 +22,7 @@ var ItemView = Backbone.View.extend({
     checkOut.addItem(this.model)
     console.log(checkOut)
   },
-
+  
 
 });
 

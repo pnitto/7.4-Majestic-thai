@@ -4,6 +4,10 @@ var CheckoutView = Backbone.View.extend({
 
   template: JST['items/checkout'],
 
+  events: {
+    'click .delete-item-btn' : 'delete',
+    'click .submit-order-btn' : 'submitOrder'
+  },
   initialize: function(){
     this.listenTo(checkoutModel, 'change', this.render)
   },
@@ -19,8 +23,18 @@ var CheckoutView = Backbone.View.extend({
       subtotal: checkoutModel.get('items').reduce(function(total, current){
           return total + Number(current.get('price'));
   },0) + ""
-};
 }
+},
+  delete: function(){
+    console.log('delete item')
+    console.log(checkoutModel.get('items'))
+  },
+  submitOrder: function(){
+    checkoutModel.save();
+    console.log("Submitting order...")
+  }
+
+
 });
 
 module.exports = CheckoutView;
